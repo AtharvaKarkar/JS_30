@@ -37,7 +37,7 @@
         // Array.prototype.filter() :- built-in function allows you to create a new array containing elements from an existing array that satisfy a certain condition.
         // 1. filter the list of inventors for those who are born in 1500's
         const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
-        console.table(fifteen);   // console.table allows us to  display data in tabular format. 
+        console.table(fifteen);   // console.table allows us to display data in tabular format. 
 
         // Array.prototype.map() :- helps you to create a new array by applying a callback function to each element of inventors array.
         // 2. give us an array of the inventors first and last array.
@@ -48,7 +48,7 @@
         // Array.prototype.sort() :- sorts the array in any-given condition.
         // 3. Sort the inventors by birthdate, oldest to youngest.
         console.log('array sorted according to birthdate')
-        const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);   // ? conditional (ternary) operator  . It is a shorthad way of writing an 'if-else' statement in js.
+        const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1); // ? conditional (ternary) operator  . It is a shorthad way of writing an 'if-else' statement in js.
         /*The ternary operator `(a, b) => a.year > b.year ? 1 : -1` is used to determine the return value of the callback function. If `a.year` is greater than `b.year` the callback function returns `1` else it will return -1 */
         console.table(ordered);
 
@@ -82,11 +82,11 @@
         const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
         const transportation = data.reduce(function (obj, item) {
-        if (!obj[item]) {
-            obj[item]=0;
-        }
-        obj[item]++;
-        return obj;
+            if (!obj[item]) {
+                obj[item] = 0;
+            }
+            obj[item]++;
+            return obj;
         }, {});
 
         console.log(transportation);
