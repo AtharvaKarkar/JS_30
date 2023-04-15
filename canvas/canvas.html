@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Canvas</title>
+</head>
+
+<body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <!-- canvas provides a 2d drawing context that can be used to create a wide range of visual content.-->
+    <script>
+        const canvas = document.querySelector('#draw');
+        const ctx = canvas.getContent('2d');  // this line gets the 2d drawing context of the canvas.
+
+        canvas.width = window.innerWidth; // sets the width of the canvas to the width of the window.
+        canvas.height = window.innerHeight; // sets the height of the canvas to the height of teh window.
+        // code on line no. 16-17 makes sure that the canvas covers the entire height and width of the window.
+        ctx.strokestyle = '#BADA55';  // determines the color of the line.
+        ctx.lineJoin = 'round'; // determines the shape of the ends of lines, to "round", giving them rounded corners.
+        ctx.lineCap = 'round'; // determines the shape of the ends of lines, to "round" giving them rounded ends.
+        ctx.lineWidth = 100;  // sets the line width property, which determines the width of lines drawn on the canvas to 100 pixels.
+
+        let isDrawing = false; // declares boolean varaible called as 'isDrawing' and initializes FALSE, this variable is used to keep track whether the user is currently drawing on the canvas.
+        let lastX = 0;
+        let lastY = 0;    // storing of x(starting) and y(ending) co-ordinate where the user has drawn.
+        let direction = true;
+
+        function draw(e) {
+            if (!isDrawing) return; // stops the fn from running when they are not moused down.
+            console.log(e);
+            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; // hsl is color model 
+            ctx.beginPath();
+
+            ctx.moveTo(lastX, lastY);  //starting from
+            ctx.lineTo(e.offsetX, e.offsetY);            //go to               
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+
+            hue++;
+            if (hue >= 360) {     // this block reset the hue value to 0 when it reaches to 360, ensuring that the hue value is between 0-359.
+                hue = 0;
+            }
+            if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+                // this block of code is used to change the direction of the change in line width of the canvas drawing context.It is checking if the current line width ('ctx.lineWidth') is greater than or equal to 100. or less than or equal to 1. If eithr of these conditions is true,it changes the value of the direction. variable to its opposite using the ! (NOT) operator.
+                direction = !direction;
+            } // direction varaible determines whether the line width should be incremented or decremented.
+            if (direction) {
+                ctx.lineWidth++;
+            }
+            else {
+                ctx.lineWidth--;
+            }
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY]; // e.offsetX and e.offsetY also updates with the current mouse coordinates of the mouse cursoe relative to the canvas.
+        });
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+    </script>
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+    </style>
+</body>
+
+</html>
