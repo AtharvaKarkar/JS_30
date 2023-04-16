@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p onClick="makeGreen()">BREAK x DOWN</p>
+    <script>
+
+        // dog array.
+        const dogs =[{name:'Snikers',age:2},{name:'hugo',age:8}];
+
+        function makeGreen() {
+            const p =document.querySelector('p');
+            p.style.color="#BADA55";
+            p.style.fontSize='50px';
+        }
+        //regular : normal use of console.log statement which will print the output in console tag.
+        console.log('hello');
+
+        // interpolated : process of inserting variables or expressions into string to create a new string which combines both static and dynamic values.
+        const name="atharva";
+
+        console.log('Hello I am %s string','$');
+        const msg=`My name is ${name} and I love to workout.`;  // backticks (``) are imp in js bcz they are used to define template literals. which are type of string that allows for advanced string manipulation features.
+        console.log(msg);
+
+        //Styled  : adding css in js 
+        console.log('%c this is a great text','font-size: 50px; background:red; text-align:center; text-shadow: 10px solid black;');
+
+        // warning 
+        console.warn('OH NOOOOOO !!');  // warnings do-not stop the execution of code.
+
+        // error  : leads to program termination.
+        console.error('Shit !!'); // logs an error msg to the console
+        const errorCode =404;
+        const errormsg= `Resources not found`;
+        console.error("Error: ",errorCode,errormsg);
+
+        //info : method that is used to log informational msg to the console. Similar to console.log(), but is often used to provide additional info.
+        // console.info provides additional info or details about the code.
+        console.info('Dand Baithak Desi Ghee Code Repeat.');
+       
+        
+
+        // testing
+        const p =document.querySelector('p');
+        // assert is useful for adding assertions or validations in code.
+        console.assert(p.classList.contains('ouch'), 'This is wrong !!');
+
+        // clearing
+        console.clear();
+
+        //viewing DOM ELEMENT
+        console.log(p);
+        console.dir(p);      // dir method is useful for inspecting the structure and contents of objects in a more organised way, especially while dealing with complex objects.
+
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);         // groupCollapsed is used to group console log statements together in a collapsed group in the console output.
+            console.log(`This is ${dog.name}`);
+            console.log(`{dog.name} is ${dog.age} years old.`);
+            console.log(`{dog.name} is ${dog.age *7 } dog years old`);
+            console.groupEnd(`${dog.name}`);
+
+        });
+
+        // counting
+        console.count('AK');
+        console.count('AK');
+        console.count('JK');
+        console.count('JK');
+        console.count('AK');
+        console.count('AK');
+        console.count('JK');
+        console.count('PK');
+
+        console.count('AK');
+        console.count('JK');
+
+        console.time('fetching data');
+        fetch('https://api.github.com/users/wesbos')     // fetch method in js is used to fetch data from URL from a remote server.
+         .then(data=>data.json())
+         .then(data=> {
+            console.timeEnd('fetchinf data');
+            console.log(data);
+           });
+
+        console.log(dogs);
+
+    </script>
+</body>
+</html>
