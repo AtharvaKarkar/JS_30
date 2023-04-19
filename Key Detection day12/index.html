@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+    <script>
+        const pressed =[]; // pressed variable declared and initialized an empty array.
+        const secretCode ='coder'; // this code needs to be entered by the user in order to trigger a certain action.
+       
+        // event listener added to window object & listens to keyup event,which is triggered when the user pushes a key on their keyboard.
+        window.addEventListener('keyup',(e) => {
+            console.log(e.key);  // prints the key entered by the user.
+            pressed.push(e.key); // push is a built-in method in js array that adds an element to the end of the pressed array. & e.key is the value that we want to add to the end of the 'pressed' array.
+
+            // the splice method add / removes array element (dynamic array created.)
+            // in order to limit the length of the array & then verifty it,we have to cut the array once it's getting too long.
+            pressed.splice(-secretCode.length -1,pressed.lenght - secretCode.lenght);
+            // once there are over 8 elements in the array, the 9th one will be deleted right away, which results in keeping the array in the same lenght all the time.
+            if (pressed.join('').includes(secretCode))
+            {
+                console.log('KNOCK KNOCK !!');
+                cornifty_add();
+            }
+            console.log(pressed);
+        
+        });
+    </script>
+</body>
+</html>
