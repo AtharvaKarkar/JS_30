@@ -72,6 +72,64 @@
 
 
 
+        // Shallow copy & deep Copy
+    // what we need to be careful is that all those methods above are only making a shallow copy of the original array/object.
+    // following example, we have a user data which contains a nested object. Let's say we want to make a copy of it and then reassign a twitter account to it.
+
+    const atharva = {
+        name:'atharva',
+        age:21,
+        social:{
+            twitter:'@atharva2801',
+            facebook:'atharva.developer'
+        }
+    };
+    const dev = Object.assign({},atharva,{name:'manya'});
+    dev.social.twitter = '@atharva28';
+    console.log(atharva);
+    console.log(dev);
+
+    // make a deep copy in js
+    // deep copy of an object is a copy whose properties do not share the same regerences(point to the same underlying values) as those of the source object from which the copy was made. As a result,when you change either the source or the copy,you can be assured you're not causing the other object to change too.
+
+    // 1. Using JSON.parse(JSON.stringify(object)) : a simple way to do it is by turning an object into a JSON string, and then parse it back to a js object.
+    let ingredients_list =["noodles",{list :["eggs","flour","water"]}];
+    let ingredients_list_deepcopy =JSON.parse(JSON.stringify(ingredients_list));
+
+    ingredients_list_deepcopy[1].list=["rice flour","water"];
+
+    console.log(ingredients_list[1].list);
+
+    // after changing the value of the 'list property in ingredients_list_deepcopy, the 'list' property does not change in the original ingredients_list.'
+
+
+    // using structuredClone() : a global method which allows you to create a deep copy of an object. This method is relatively new but it's already supported by all browsers.
+
+    let wizards =[{
+        // here we have an array of wizards
+        name:'radagast',
+        color:'brown',
+    }, {
+        name:'jimjim',
+        color:'black'
+    }];
+    let wizardsCopy = structuredClone(wizards);
+    // Then we push some new data in the copied array and also update the name of the first wizard.
+
+    wizardsCopy.push({
+        name:'Goblin',
+        color:'blue'
+    });
+    wizardsCopy[0].name='dragon';
+
+    // when we put out the original wizards array,we will find that all the data remains unchanged.
+    console.log(wizards);
+    console.log(wizardsCopy);
+    
+
+
+
+
 
 
 
