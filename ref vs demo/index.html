@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS REFRENCE VS COPY</title>
+</head>
+<body>
+    <script>
+        console.info('learning different ways to copy an array or an object,as well as the diff between shallow and deep copy.');
+        // for primitive types like strings,numbers or booleans, when we copy the value to another variable,and then update the copied variable, the original variable remain unchanged.
+
+        let age=100;
+        let age2=age;
+
+        console.log(age,age2);
+        age2=12;
+        console.log('age is:',age2);
+
+        let name='atharva';
+        let name2=name;
+        console.log(name,name2);
+
+        name2 = 'manya';
+        console.log('new name is:',name2);
+
+        // however,when it comes to an array or an object,things are different.If we update copied array, the original array changes too. The reason is because primitive types are called by VALUE, while objects are called by Refrence . So actually team and players they point to the same array !!
+        const players =['atharva','sahil','sunny','arya','amol'];
+        const team = players;
+        console.log(players,team);
+
+        team[3]='jimjam';
+        console.log(players,team);
+
+        // Different ways to copy an array.
+
+        //1. using array.splice() : if we don't pass in any arguments in the slice() method, it just gives us a copy of the original array.
+        const team2=players.splice();
+        team2[3]='santoor';
+        console.log(players,team2);
+
+        // using array.concat(): we can also create a new array and concat the odd one in.
+        const team3 = [].concat(players);
+        team3[3] ='Cool';
+        console.log(players,team3);
+        // using ES6 Spread operator(...) The spread operator in ES6 is a very simple way to do it.
+        const team4 = [...players];
+        team4[3] ='hieeee';
+        console.log(players,team4);
+
+
+    </script>
+</body>
+</html>
