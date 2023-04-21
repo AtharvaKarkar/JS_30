@@ -40,14 +40,41 @@
         team2[3]='santoor';
         console.log(players,team2);
 
-        // using array.concat(): we can also create a new array and concat the odd one in.
+        //2. using array.concat(): we can also create a new array and concat the old one in.
         const team3 = [].concat(players);
         team3[3] ='Cool';
         console.log(players,team3);
-        // using ES6 Spread operator(...) The spread operator in ES6 is a very simple way to do it.
+        //3. using ES6 Spread operator(...) The spread operator in ES6 is a very simple way to do it.
         const team4 = [...players];
         team4[3] ='hieeee';
         console.log(players,team4);
+
+        // 4. using Array.from() to create a new array.
+        const team5 = Array.from(players);
+        team5[3] ='hahaha';
+        console.log(players,team5);
+
+        /*DIFFERENT WAYS TO COPY AN OBJECT */
+        
+        //1. Using object.assign() :
+        const person ={
+            name: 'atharva',
+            age:21
+        };
+        //In Object.assign() method, we first pass in an empty object,then the object we want to copy,as well as other properties that we want to add to our new object.
+        const captain = Object.assign({},person,{number:28});
+        console.log(captain);
+
+        // 2. using ES6 spread operator(...)
+        const cap2 = {...captain};
+        cap2.age = 12;
+        console.log(cap2,person);
+
+
+
+
+
+
 
 
     </script>
