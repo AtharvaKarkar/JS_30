@@ -10,19 +10,40 @@
     <style>
     body{
         margin:0;
-        font-family: 'Courier New', Courier, monospace;
+        font-family:'Times New Roman', Times, serif;
+        font-size: large;
+        color: red;
         background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
         background-size: cover;
         display:flex;
         align-items: center;
-        min-height:100vh;
+        min-height:100vh;  
+    }
+
+    #bands {
+        list-style: inside square;
+        font-size: 30px;
+        background:black;
+        width: 500px;
+        margin:auto;
+        padding: 0;
+        box-shadow: 0 0 0 20px rgba(0,0,0,0.05);
     }
 
     #bands li{
-        border-bottom:1px solid yellowgreen;
+        border-bottom:1px solid rgb(19, 107, 214);
+        padding: 20px;
+    }
+    #bands li:last-child {
         border-bottom: 0;
+        
+    }
+    a{
+        color: #dbc77e;
+        text-decoration: none;
     }
     </style>
     <ul id="bands"></ul>
+    <script src="app.js"></script>
 </body>
 </html>
