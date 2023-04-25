@@ -197,6 +197,16 @@
             return (mins * 60) + secs;
         }) 
         .reduce((total,vidSeconds) =>total + vidSeconds);     // adding up total runtime by using reduce() method.
+
+    let secondsLeft = seconds;
+    // Math.floor() is a built-in function that takes a single number argument and return the largest integer less than or equal to that number.  eg: let x =3.7 let y = Math.floor(x); // output:- 3
+    const hours = Math.floor(secondsLeft / 3600);        // 1 HR = 3600 seconds.
+    secondsLeft = secondsLeft % 60;
+
+    const mins = Math.floor(secondsLeft / 60);
+    secondsLeft = secondsLeft % 60;
+
+    console.log(hours,mins,secondsLeft);
         
     </script>
 </body>
