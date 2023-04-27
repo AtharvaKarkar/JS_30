@@ -40,3 +40,19 @@ function painttoCanvas() {
    
    }, 16);
 }
+
+function takePhoto() {
+    // played the sound
+    snap.currentTime = 0;      // makes sure that the currentTime property is set to ) to ensure that the sound starts from the beginning.
+    snap.play(); // this line will play the audio when the takePhoto function is called.
+
+    // taking the data out of canvas
+    const data = canvas.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href=data;
+    link.setAttribute('download','handsome');
+    link.innerHtml = `<img src = "${data}" alt="Handsome Man"/>`;
+    strip.insertBefore(link,strip,firstChild);   //This line inserts the new link containing the image into the HTML page. The strip variable likely refers to an HTML element where the images are being displayed, and firstChild is used to ensure that the new link is added to the beginning of the list of images. The insertBefore() method is used to insert the link into the correct position.
+}
+
+
