@@ -8,7 +8,6 @@ let p = document.createElement('p');
 const words = document.querySelector('.words');
 words.appendChild(p);                                 
 
-
 // set an evetlistener for the result event, which is fired when the recognition engine returns a result.
 recognition.addEventListener('result',e => {
     const transceript = Array.from(e.result)
