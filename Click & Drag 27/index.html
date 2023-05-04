@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click and Drag Day-27</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Our works</h1>
+    <div class="items">01
+        <div class="item-item1">
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="item-item2">02
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="item-item3">03
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="item-item4">04
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="item-item5">05
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="item-item6">06
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+
+        <div class="item-item7">07
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+
+        <div class="item-item8">08
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="item-item9">09
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+
+        <div class="item-item10">10
+            <h2 class="item-title">Hello</h2>
+            <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolores ullam
+                assumenda consequatur fuga? Similique, maxime. Est quisquam aliquid iste!</p>
+            <button class="item-btn">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+
+        <!--main div (items)-->
+    </div>
+    <script>
+        const slider = document.querySelector('.items');
+        let isDown = false;
+        let starX; // where the mouse clicked down
+        let scrollLeft; // to record how much the slider is scrolled initially.
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.page - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // stops the fn running.
+            e.preventDefault();
+
+            // calculate how much the slider has to be scrolled
+            const x = e.pageX - slider.offsetLeft;    // we get the initial position of the mouse by using e.pageX and slider.offsetLeft
+            // the e.pagex returns the X (horizontal) coordinate at which the mouse clicked. The slider.offsetLeft gives us the distance between the left border of the slider and the left edge of the page.
+            const walk = (x - startX) * 3;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        // will set the isDown to false on mouseleave to prevent the dragging from running when the cursor is not the slider.
+
+        // 1. use flag variable to track mouse down state.
+
+    </script>
+</body>
+
+</html>
