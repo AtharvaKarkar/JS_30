@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,36 +8,40 @@
     <title>Day-28 Video-Speed-Controller</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
-    <!--the loop attribute in the video tag tells the browser to loop the playback of the video when it reaches the end , The "controls" attribute adds a set of playback controls to the video player,such as play/pause,volume,progress bar, It helps us to interact with the video player nad control the playback of the video.-->
-    <div class="speed">
-        <div class="speed-bar">1x</div>
+        <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop
+            controls></video>
+        <!--the loop attribute in the video tag tells the browser to loop the playback of the video when it reaches the end , The "controls" attribute adds a set of playback controls to the video player,such as play/pause,volume,progress bar, It helps us to interact with the video player nad control the playback of the video.-->
+        <div class="speed">
+            <div class="speed-bar">1x</div>
+        </div>
+        <!--wrapper div-->
     </div>
- <!--wrapper div-->
-</div>
+
 </body>
 <script>
     const speed = document.querySelector('.speed');
     const bar = speed.querySelector('.speed-bar');
     const video = document.querySelector('.flex');
-// calculate the position of the mouse realtive to the speed bar and update the height accordingly.
-function handleMove(e) {
-    const y = e.pageY - this.offsetTop;  // calculating the vertical distance btwn mouse pointer and top edge of the element that the event was triggered.
-    const percent = y / this.offsetHeight; // calculating the percentage of the element's height that the mouse pointer is currently hovering over. It does so by dividing the vertical distance calculate in the previous line by the total height of the element.
- 
-   
-  /*Update the playbackRate accordingly 
-  - we can set whatever the min. and max value we want for the speed bar, but note that we need to add the minimum value back for the playbackRate. plus, we can update the text on the speed bar so that the user can easilu see the current speed of the video.*/
-  const min = 0.4
-  const max = 4;
-  const height = Math.round(percent * 100) + '%';
-  const playbackRate = percent * (max-min) + min;
-  bar.style.height = height; // sets the height of the progress bar by assigning the 'height' variable as the css height property to the 'style ' attribute of the 'bar' element.
-  bar.textContent = playbackRate.toFixed(2) + 'x';
-  video.playbackRate = playbackRate;
-}
-speed.addEventListener('mousemove',handleMove);
+    // calculate the position of the mouse realtive to the speed bar and update the height accordingly.
+    function handleMove(e) {
+        const y = e.pageY - this.offsetTop;  // calculating the vertical distance btwn mouse pointer and top edge of the element that the event was triggered.
+        const percent = y / this.offsetHeight; // calculating the percentage of the element's height that the mouse pointer is currently hovering over. It does so by dividing the vertical distance calculate in the previous line by the total height of the element.
+
+
+        /*Update the playbackRate accordingly 
+        - we can set whatever the min. and max value we want for the speed bar, but note that we need to add the minimum value back for the playbackRate. plus, we can update the text on the speed bar so that the user can easilu see the current speed of the video.*/
+        const min = 0.4
+        const max = 4;
+        const height = Math.round(percent * 100) + '%';
+        const playbackRate = percent * (max - min) + min;
+        bar.style.height = height; // sets the height of the progress bar by assigning the 'height' variable as the css height property to the 'style ' attribute of the 'bar' element.
+        bar.textContent = playbackRate.toFixed(2) + 'x';
+        video.playbackRate = playbackRate;
+    }
+    speed.addEventListener('mousemove', handleMove);
 </script>
+
 </html>
