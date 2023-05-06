@@ -67,7 +67,7 @@ body {
 }
 
 .timer_button:focus {
-    background-color: rgb(223, 174, 12); /*color will be changed to red after I click on the button*/
+    background-color: #ff0808; /*color will be changed to red after I click on the button*/
     outline:0;/*the 'outline' property is also set to 0 which means that the default focus outline around the button will be removed.*/
 }
 
@@ -93,6 +93,6 @@ body {
 .progress-bar {
     width:0px;
     height: 1rem;
-    background-color: white;
+    background-color: rgb(16, 16, 16);
     transition: all 300ms ease;
 }
