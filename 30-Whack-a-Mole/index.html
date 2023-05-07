@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Whack-a-Mole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="whack">
+        <h1>Whack-a-mole!!</h1>
+        <div class="board">
+            <button class="start-btn" onClick="startGame(10)">Start !!</button>
+            <!--onClick = "startGame(10)": this is an event attribute that specifies a js function to be executed when the button is clicked. In this case, the function is called "startGame" nad it takes 10 arguments-->
+            <p class="score">Score: <span class="score-count">0</span></p>
+        </div>
+        <span class="time-left">0:00</span>
+        <!--whack div-->
+    </div>
+
+    <div class="game">
+
+        <div class="hole hole 1">
+            <div class="mole"></div>
+        </div>
+
+        <div class="hole hole 2">
+            <div class="mole"></div>
+        </div>
+
+        <div class="hole hole3">
+            <div class="mole"></div>
+        </div>
+
+        <div class="hole hole4">
+            <div class="mole"></div>
+        </div>
+
+        <div class="hole hole5">
+            <div class="mole"></div>
+        </div>
+
+        <div class="hole hole6">
+            <div class="mole"></div>
+        </div>
+    <!--game div-->
+    </div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
